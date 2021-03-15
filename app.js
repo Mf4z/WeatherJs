@@ -6,7 +6,20 @@ const ui = new UI();
 
 //Get Weather on DOM content loaded
 document.addEventListener('DOMContentLoaded', getWeather);
-weather.changeLocation('Kaduna');
+
+//Change location event
+document.getElementById('w-change-btn').addEventListener('click', (e) => {
+  const city = document.getElementById('city').value;
+
+  //Change weather location
+  weather.changeLocation(city);
+
+  //Get and display weather
+  getWeather();
+
+  //Close Modal
+  $('#locModal').modal('hide');
+});
 
 //To allow us use it in DOM
 function getWeather() {
